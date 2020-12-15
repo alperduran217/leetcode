@@ -1,7 +1,10 @@
 package com.education.binaryTree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Queue;
 
 public class BinaryTreeLevelOrderTraversal {
     public static void main(String[] args) {
@@ -14,23 +17,34 @@ public class BinaryTreeLevelOrderTraversal {
 
     }
 
-    static List<List<Integer>> levels = new ArrayList<>();
-
-    public static void helper(TreeNode node, int level) {
-        if (levels.size() == level)
-            levels.add(new ArrayList<>());
-
-        levels.get(level).add(node.val);
-
-        if (node.left != null)
-            helper(node.left, level + 1);
-        if (node.right != null)
-            helper(node.right, level + 1);
-    }
-
     public static List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) return levels;
-        helper(root, 0);
-        return levels;
+        List<List<Integer>> result = new ArrayList<>();
+
+        if (Objects.isNull(root)) {
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
+
+            for (int i = 0; i < size; i++) {
+                TreeNode currentRoot = queue.remove();
+                currentLevel.add(currentRoot.val);
+
+                if (Objects.nonNull(currentRoot.left)) {
+                    queue.add(currentRoot.left);
+                }
+
+                if (Objects.nonNull(currentRoot.right)) {
+                    queue.add(currentRoot.right);
+                }
+            }
+            result.add(currentLevel);
+        }
+        return result;
     }
 }
