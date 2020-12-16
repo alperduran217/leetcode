@@ -21,7 +21,7 @@ import java.util.Queue;
  * }
  * }
  */
-class FindAllTheLonelyNodes {
+public class FindAllTheLonelyNodes {
     public List<Integer> getLonelyNodes(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (Objects.isNull(root)) {
