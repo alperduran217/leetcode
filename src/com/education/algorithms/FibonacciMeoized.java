@@ -29,8 +29,6 @@ public class FibonacciMeoized {
             result = memoized(n - 1, memo) + memoized(n - 2, memo);
         }
 
-      Stack<Boolean> stack = new S
-
 
         memo[n] = result;
         return result;
