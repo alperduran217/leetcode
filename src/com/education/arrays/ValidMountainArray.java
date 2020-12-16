@@ -4,41 +4,21 @@ public class ValidMountainArray {
 
     public static boolean validMountainArray(int[] arr) {
         int n = arr.length;
-        if (n < 3) {
-            return false;
-        }
-        int max = Integer.MIN_VALUE;
-        int maxIndex = 0;
-
-        boolean part1 = true;
-        boolean part2 = true;
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-                maxIndex = i;
-            }
+        int p1 = 0;
+        while(p1 < arr.length && p1 + 1 < arr.length && arr[p1] < arr[p1 + 1]){
+            p1++;
         }
 
-        if(maxIndex == n -1 || maxIndex == 0){
+        if(p1 == 0 || p1 + 1 >= arr.length) {
             return false;
         }
 
-        for (int i = 0; i < maxIndex; i++) {
-            if (arr[i] > arr[i + 1]) {
-                part1 = false;
-                break;
+        while(p1 < arr.length && p1 + 1 < arr.length ){
+            if(arr[p1] <= arr[p1++ + 1]){
+                return false;
             }
         }
-
-        for (int i = maxIndex; i < arr.length - 1; i++) {
-            if (arr[i] < arr[i + 1]) {
-                part2 = false;
-                break;
-            }
-        }
-
-        return part1 && part2;
+        return true;
     }
 
     public static void main(String[] args) {
