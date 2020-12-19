@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-class MajorityElement {
+public class MajorityElement {
     public int majorityElement(int[] nums) {
 
         Map<Integer, Integer> map = new HashMap<>();
