@@ -1,6 +1,6 @@
 package com.education.binarySearch;
 
-class PeakIndexInMountainArray {
+public class PeakIndexInMountainArray {
     public int peakIndexInMountainArray(int[] arr) {
         int left = 0;
         int right = arr.length - 1;
