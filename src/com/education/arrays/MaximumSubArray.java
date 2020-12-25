@@ -1,5 +1,5 @@
 package com.education.arrays;
-
+//KADANE'S ALGORITHM
 public class MaximumSubArray {
     public int maxSubArray(int[] nums) {
         int maxCurrent = nums[0];
