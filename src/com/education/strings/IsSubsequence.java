@@ -1,9 +1,9 @@
 package com.education.strings;
 
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
-class IsSubsequence {
+public class IsSubsequence {
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0) {
             return true;
